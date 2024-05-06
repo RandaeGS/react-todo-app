@@ -1,14 +1,19 @@
+import { useRef, useState } from "react"
 import "./App.css"
 import TodoList from "./TodoList"
 
 function App() {
 
-  const handleActiveClick = () => {
+  const [toggle, setTogle] = useState(false)
 
+  const handleDoneClick = (e) => {
+    e.preventDefault()
+    setTogle((toggle) => toggle = true)
   }
 
-  const handleDoneClick = () => {
-
+  const handleUndoneClick = (e) => {
+    e.preventDefault()
+    setTogle((toggle) => toggle = false)
   }
 
   return (
@@ -16,10 +21,10 @@ function App() {
       <div className="row align-items-center">
         <div className="col">
           <h1 className="text-center">Todo App</h1>
-          <button type="button" className="btn btn-primary mx-2" onClick={handleActiveClick}>Active</button>
-          <button type="button" className="btn btn-secondary" onClick={handleDoneClick}>Done</button>
+          <button id="undone" type="button" className="btn btn-primary mx-2" onClick={handleUndoneClick} disabled={!toggle}>Undone</button>
+          <button id="done" type="button" className="btn btn-secondary" onClick={handleDoneClick} disabled={toggle}>Done</button>
 
-          <TodoList />
+          <TodoList doneTasks={toggle} />
         </div>
       </div>
     </div>
