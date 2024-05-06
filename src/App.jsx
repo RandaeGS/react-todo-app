@@ -1,7 +1,9 @@
+import "./App.css"
+
 function App() {
 
   return (
-    <div className="container">
+    <div className="container text-center" id="container">
       <div className="row align-items-center">
         <div className="col">
           <h1 className="text-center">Todo App</h1>
