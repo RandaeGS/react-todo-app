@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useState } from "react"
 import "./App.css"
 import TodoList from "./TodoList"
 
@@ -24,7 +24,7 @@ function App() {
           <button id="undone" type="button" className="btn btn-primary mx-2" onClick={handleUndoneClick} disabled={!toggle}>Undone</button>
           <button id="done" type="button" className="btn btn-secondary" onClick={handleDoneClick} disabled={toggle}>Done</button>
 
-          <TodoList doneTasks={toggle} />
+          <TodoList showDoneTasks={toggle} />
         </div>
       </div>
     </div>
